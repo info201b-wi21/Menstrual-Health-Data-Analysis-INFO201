@@ -70,15 +70,9 @@ total_budgets_df <- menstrual_budget_df %>%
 
 total_budgets_plot <- ggplot(data = total_budgets_df) +
   geom_col(
-    mapping = aes(x = Year, y = Total)
+    mapping = aes(x = Year, y = Total),
+    fill = '#1588EC'
   ) +
   labs(
     title = 'Average Menstrual Budget per Fiscal Year'
-  ) + 
-  scale_fill_manual(
-    values = c(
-      '2016-17' = '#000000',
-      '2017-18' = '#FF0000',
-      '2018-19' = '#000000'
-    )
   )
