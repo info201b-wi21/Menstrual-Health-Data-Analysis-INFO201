@@ -106,5 +106,16 @@ preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df ) +
                                                                              "preg_comp" = "Any Pregnancy Complications",
                                                                              "vag_discharge_comp" = "Vaginal Discharge Complications"))
 
+View(preg_comp_df)
+mens_comp_state_df <- preg_comp_df %>%
+  group_by(States) %>%
+  summarize(menstrual_related_comp = sum(menstrual_related_comp))
+
+mens_comp_state_plot <- ggplot(data = mens_comp_state_df) +
+  geom_point(mapping = aes(x = States, y = menstrual_related_comp), color = "red") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(title = "Menstrual Related Complications During Pregnancy by State",
+       x = "States",
+       y = "Menstrual Complications")
 
 

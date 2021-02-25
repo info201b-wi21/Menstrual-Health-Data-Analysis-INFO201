@@ -85,6 +85,14 @@ Other notable outliers are the four states with the highest complications, which
 are notable due to the fact that it may be simply the case that these states are among the most populous states in India and therefore may have a larger amount of cases due to 
 sheer numbers alone. 
 
+``` {r, echo = FALSE}
+mens_comp_state_plot
+```
+
+#### **Outliers**
+
+A notable outlier is `r mens_comp_state_df %>% filter(menstrual_related_comp == max(menstrual_related_comp)) %>% pull(States)`. This particular value is notable due to the fact that it indicates an unusually large amount of menstrual complications in relation to the rest of the data set. This can be attributable to the fact that West Bengal is one of the most populous states in the country. 
+
 ## Menstrual Hygiene Scheme Budget 2016-2020 Data Set
 Source: [Menstrual Hygiene Scheme Budget](https://data.gov.in/resources/stateut-wise-menstrual-hygiene-scheme-budget-approved-under-nhm-2016-17-2019-20-ministry)
 
