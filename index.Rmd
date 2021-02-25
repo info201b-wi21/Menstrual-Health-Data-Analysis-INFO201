@@ -61,6 +61,19 @@ The column names for this data set: <br>
 - vag_discharge_comp = % of Women with Problems with Vaginal Discharge in Last 3 Months <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
+### Summary Statistics
+
+The minimum rate of pregnancy complications is `r min(preg_comp_stats)`%.
+
+The maximum rate of pregnancy complications is `r max(preg_comp_stats)`%.
+
+On average, the rate of pregnancy complications in India is `r mean(preg_comp_stats)`%.
+
+The overall standard deviation of this data set is fairly low and the mean and median
+are fairly close together therefore, we can assume that the data is well distributed.
+Additionally, the lack of NA values leads us to believe that the data set was
+collected in a consistent manner.
+
 ## Menstrual Hygiene Scheme Budget 2016-2020 Data Set
 Source: [Menstrual Hygiene Scheme Budget](https://data.gov.in/resources/stateut-wise-menstrual-hygiene-scheme-budget-approved-under-nhm-2016-17-2019-20-ministry)
 
@@ -84,5 +97,39 @@ The column names for this data set: <br>
 - 2017-18 Budget <br>
 - 2018-19 Budget <br>
 - 2019-20 Budget <br>
+
+### Summary Statistics
+
+#### 2016-2017
+
+The average spending for the years of 2016-2017 is `r mean(mens_budget_2016_17)`.
+
+The range of this data set is `r max(mens_budget_2016_17) - min(mens_budget_2016_17)`.
+
+This data set comes with `r mens_budget_2016_17['NA\'s']` NA values.
+
+#### 2017-2018
+
+The average spending for the years of 2017-2018 is `r mean(mens_budget_2017_18)`.
+
+The range of this data set is `r max(mens_budget_2017_18) - min(mens_budget_2017_18)`.
+
+This data set comes with `r mens_budget_2017_18['NA\'s']` NA values.
+
+#### 2018-2019
+
+The average spending for the years of 2018-2019 is `r mean(mens_budget_2018_19)`.
+
+The range of this data set is `r max(mens_budget_2018_19) - min(mens_budget_2018_19)`.
+
+This data set comes with `r mens_budget_2018_19['NA\'s']` NA values.
+
+#### 2019-2020
+
+The average spending for the years of 2019-2020 is `r mean(mens_budget_2019_20)`.
+
+The range of this data set is `r max(mens_budget_2019_20) - min(mens_budget_2019_20)`.
+
+This data set comes with `r mens_budget_2019_20['NA\'s']` NA values.
 
 ## Specific Question Analyses
