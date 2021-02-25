@@ -14,9 +14,7 @@ preg_comp_df <- preg_comp_df %>%
     )
 
 # Menstrual Hygiene Scheme Budget 2016-2020 Data Set
-
-menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=ASLYGZ62ND77PLVCXOBOLJTAH4HGO")
-
+menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=AOXKT2HVOERM36KHCF5HE4LAH4GQ6")
 
 # Changing column names to be more readable in menstrual_budget_df
 menstrual_budget_df <- menstrual_budget_df %>% 
@@ -59,18 +57,6 @@ columns = list(
 total_budgets_df <- menstrual_budget_df %>% 
   replace_na(columns) %>% 
   summarize(
-<<<<<<< HEAD
-    '2016_17' = sum(`2016-17`),
-    '2017_18' = sum(`2017-18`),
-    '2018_19' = sum(`2018-19`),
-    '2019_20' = sum(`2019-20`)
-  )
-
-total_budgets_plot <- ggplot(data = total_budget_df) +
-  geom_histogram(
-    
-  )
-=======
     '2016-17' = sum(`2016-17`),
     '2017-18' = sum(`2017-18`),
     '2018-19' = sum(`2018-19`),
@@ -84,10 +70,15 @@ total_budgets_plot <- ggplot(data = total_budget_df) +
 
 total_budgets_plot <- ggplot(data = total_budgets_df) +
   geom_col(
-    mapping = aes(x = Year, y = Total),
-    fill = '#1588EC'
+    mapping = aes(x = Year, y = Total)
   ) +
   labs(
     title = 'Average Menstrual Budget per Fiscal Year'
+  ) + 
+  scale_fill_manual(
+    values = c(
+      '2016-17' = '#000000',
+      '2017-18' = '#FF0000',
+      '2018-19' = '#000000'
+    )
   )
->>>>>>> Graph-1-Subsection-2.2
