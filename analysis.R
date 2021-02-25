@@ -46,3 +46,33 @@ mens_budget_2016_17_sd <- sd(menstrual_budget_df$`2016-17`, na.rm = TRUE)
 mens_budget_2017_18_sd <- sd(menstrual_budget_df$`2017-18`, na.rm = TRUE)
 mens_budget_2018_19_sd <- sd(menstrual_budget_df$`2018-19`, na.rm = TRUE)
 mens_budget_2019_20_sd <- sd(menstrual_budget_df$`2019-20`, na.rm = TRUE)
+
+columns = list(
+  '2016-17' = 0,
+  '2017-18' = 0,
+  '2018-19' = 0,
+  '2019-20' = 0
+)
+
+total_budgets_df <- menstrual_budget_df %>% 
+  replace_na(columns) %>% 
+  summarize(
+    '2016-17' = sum(`2016-17`),
+    '2017-18' = sum(`2017-18`),
+    '2018-19' = sum(`2018-19`),
+    '2019-20' = sum(`2019-20`)
+  ) %>% 
+  pivot_longer(
+    c('2016-17', '2017-18', '2018-19', '2019-20'),
+    names_to = 'Year'
+  ) %>% 
+  rename('Total' = 'value')
+
+total_budgets_plot <- ggplot(data = total_budgets_df) +
+  geom_col(
+    mapping = aes(x = Year, y = Total),
+    fill = '#1588EC'
+  ) +
+  labs(
+    title = 'Average Menstrual Budget per Fiscal Year'
+  )
