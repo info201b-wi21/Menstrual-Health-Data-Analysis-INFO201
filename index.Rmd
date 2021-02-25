@@ -100,7 +100,13 @@ The column names for this data set: <br>
 
 ### Summary Statistics
 
-#### 2016-2017
+```{r total_budgets_plot, echo = FALSE}
+
+total_budgets_plot
+
+```
+
+#### **2016-2017**
 
 The average spending for the years of 2016-2017 is `r mean(mens_budget_2016_17)`.
 
@@ -108,7 +114,7 @@ The range of this data set is `r max(mens_budget_2016_17) - min(mens_budget_2016
 
 This data set comes with `r mens_budget_2016_17['NA\'s']` NA values.
 
-#### 2017-2018
+#### **2017-2018**
 
 The average spending for the years of 2017-2018 is `r mean(mens_budget_2017_18)`.
 
@@ -116,7 +122,7 @@ The range of this data set is `r max(mens_budget_2017_18) - min(mens_budget_2017
 
 This data set comes with `r mens_budget_2017_18['NA\'s']` NA values.
 
-#### 2018-2019
+#### **2018-2019**
 
 The average spending for the years of 2018-2019 is `r mean(mens_budget_2018_19)`.
 
@@ -124,12 +130,28 @@ The range of this data set is `r max(mens_budget_2018_19) - min(mens_budget_2018
 
 This data set comes with `r mens_budget_2018_19['NA\'s']` NA values.
 
-#### 2019-2020
+#### **2019-2020**
 
 The average spending for the years of 2019-2020 is `r mean(mens_budget_2019_20)`.
 
 The range of this data set is `r max(mens_budget_2019_20) - min(mens_budget_2019_20)`.
 
 This data set comes with `r mens_budget_2019_20['NA\'s']` NA values.
+
+#### **Outliers**
+
+For each fiscal year, there was a lot of missing data. At the maximum, there was data
+present for 17 states.
+
+Overall, the data seemed to be fairly consistent for what was present however, there is an
+evident outlier for the year of 2019-20 as the average is significantly higher than the rest.
+If we take a closer look at our data set, we can see that there is an entry for Rajasthan
+that was higher than others provided. Additionally, it was also the only year Rajasthan
+provided any data indicating that there was an issue with data collection somewhere along the line.
+This same phenomena arose a couple of times throughout the data set.
+
+All NAs were replaced with 0s for calculations which could potentially misrepresent a budget
+that was actually there but not reported. In some cases, the could drive the average either
+up or down.
 
 ## Specific Question Analyses

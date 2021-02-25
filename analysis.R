@@ -57,6 +57,7 @@ columns = list(
 total_budgets_df <- menstrual_budget_df %>% 
   replace_na(columns) %>% 
   summarize(
+<<<<<<< HEAD
     '2016_17' = sum(`2016-17`),
     '2017_18' = sum(`2017-18`),
     '2018_19' = sum(`2018-19`),
@@ -67,3 +68,24 @@ total_budgets_plot <- ggplot(data = total_budget_df) +
   geom_histogram(
     
   )
+=======
+    '2016-17' = sum(`2016-17`),
+    '2017-18' = sum(`2017-18`),
+    '2018-19' = sum(`2018-19`),
+    '2019-20' = sum(`2019-20`)
+  ) %>% 
+  pivot_longer(
+    c('2016-17', '2017-18', '2018-19', '2019-20'),
+    names_to = 'Year'
+  ) %>% 
+  rename('Total' = 'value')
+
+total_budgets_plot <- ggplot(data = total_budgets_df) +
+  geom_col(
+    mapping = aes(x = Year, y = Total),
+    fill = '#1588EC'
+  ) +
+  labs(
+    title = 'Average Menstrual Budget per Fiscal Year'
+  )
+>>>>>>> Graph-1-Subsection-2.2
