@@ -6,7 +6,7 @@ preg_comp_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/projec
 # Changing column names to be more readable in preg_comp_df
 preg_comp_df <- preg_comp_df %>% 
   rename(
-    any_preg_comp = Percentage.of.Women.who.had...Any.Pregnancy.complication7,
+    preg_comp = Percentage.of.Women.who.had...Any.Pregnancy.complication7,
     any_delivery_comp = Percentage.of.Women.who.had...Any.Delivery.complication7,
     any_post_delivery_comp = Percentage.of.Women.who.had...Any.Post.delivery.complication7,
     vag_discharge_comp = Percentage.of.Women.who.had...Problem.of.vaginal.discharge.during.last.three.months,
@@ -14,7 +14,7 @@ preg_comp_df <- preg_comp_df %>%
     )
 
 # Menstrual Hygiene Scheme Budget 2016-2020 Data Set
-menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/RS_Session_250_AU2474_Annexure-I.csv?token=ASLYGZ7RCMLDJ3CUNI4YCLDAHRRKO")
+menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=AOXKT2HVOERM36KHCF5HE4LAH4GQ6")
 
 # Changing column names to be more readable in menstrual_budget_df
 menstrual_budget_df <- menstrual_budget_df %>% 
@@ -25,4 +25,45 @@ menstrual_budget_df <- menstrual_budget_df %>%
     "2017-18" = X2017.18,
     "2018-19" = X2018.19,
     "2019-20" = X2019.20
+  ) %>% 
+  filter(state_no != 'Total')
+
+menstrual_budget_df$`2016-17` <- as.numeric(menstrual_budget_df$`2016-17`)
+menstrual_budget_df$`2017-18` <- as.numeric(menstrual_budget_df$`2017-18`)
+menstrual_budget_df$`2018-19` <- as.numeric(menstrual_budget_df$`2018-19`)
+menstrual_budget_df$`2019-20` <- as.numeric(menstrual_budget_df$`2019-20`)
+
+# Summary statistics
+preg_comp_stats <- summary(preg_comp_df$menstrual_related_comp)
+mens_budget_2016_17 <- summary(menstrual_budget_df$`2016-17`)
+mens_budget_2017_18 <- summary(menstrual_budget_df$`2017-18`) 
+mens_budget_2018_19 <- summary(menstrual_budget_df$`2018-19`)
+mens_budget_2019_20 <- summary(menstrual_budget_df$`2019-20`)
+
+# Standard Deviation
+preg_comp_sd <- sd(preg_comp_df$menstrual_related_comp, na.rm = TRUE)
+mens_budget_2016_17_sd <- sd(menstrual_budget_df$`2016-17`, na.rm = TRUE)
+mens_budget_2017_18_sd <- sd(menstrual_budget_df$`2017-18`, na.rm = TRUE)
+mens_budget_2018_19_sd <- sd(menstrual_budget_df$`2018-19`, na.rm = TRUE)
+mens_budget_2019_20_sd <- sd(menstrual_budget_df$`2019-20`, na.rm = TRUE)
+
+columns = list(
+  '2016-17' = 0,
+  '2017-18' = 0,
+  '2018-19' = 0,
+  '2019-20' = 0
+)
+
+total_budgets_df <- menstrual_budget_df %>% 
+  replace_na(columns) %>% 
+  summarize(
+    '2016_17' = sum(`2016-17`),
+    '2017_18' = sum(`2017-18`),
+    '2018_19' = sum(`2018-19`),
+    '2019_20' = sum(`2019-20`)
+  )
+
+total_budgets_plot <- ggplot(data = total_budget_df) +
+  geom_histogram(
+    
   )
