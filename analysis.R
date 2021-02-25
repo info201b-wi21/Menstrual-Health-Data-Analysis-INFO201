@@ -85,6 +85,9 @@ preg_comp_by_state_df <- preg_comp_df %>%
             vag_discharge_comp=sum(vag_discharge_comp),
             menstrual_related_comp=sum(menstrual_related_comp))
 
+preg_comp_by_state_df <- preg_comp_by_state_df %>% 
+  mutate(total_comp= any_delivery_comp + preg_comp +any_post_delivery_comp + vag_discharge_comp + menstrual_related_comp)
+
 preg_comp_by_state_df <- preg_comp_by_state_df %>% pivot_longer(cols=c(any_delivery_comp,
                                                                        any_post_delivery_comp,
                                                                        preg_comp,

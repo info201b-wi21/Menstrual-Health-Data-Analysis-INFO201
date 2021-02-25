@@ -62,6 +62,9 @@ The column names for this data set: <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
 ### Summary Statistics
+```{r, echo=FALSE}
+preg_comp_bar_graph
+```
 
 The minimum rate of pregnancy complications is `r min(preg_comp_stats)`%.
 
@@ -73,6 +76,14 @@ The overall standard deviation of this data set is fairly low and the mean and m
 are fairly close together therefore, we can assume that the data is well distributed.
 Additionally, the lack of NA values leads us to believe that the data set was
 collected in a consistent manner.
+
+#### **Outliers**
+
+A notable outlier is `r min(preg_comp_by_state_df$total_comp)` complications from 
+`r unique(preg_comp_by_state_df %>% filter(total_comp==min(total_comp)) %>% pull(States))`. 
+Other notable outliers are the four states with the highest complications, which
+are notable due to the fact that it may be simply the case that these states are among the most populous states in India and therefore may have a larger amount of cases due to 
+sheer numbers alone. 
 
 ## Menstrual Hygiene Scheme Budget 2016-2020 Data Set
 Source: [Menstrual Hygiene Scheme Budget](https://data.gov.in/resources/stateut-wise-menstrual-hygiene-scheme-budget-approved-under-nhm-2016-17-2019-20-ministry)
