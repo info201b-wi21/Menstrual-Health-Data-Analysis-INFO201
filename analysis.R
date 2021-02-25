@@ -14,11 +14,9 @@ preg_comp_df <- preg_comp_df %>%
     )
 
 # Menstrual Hygiene Scheme Budget 2016-2020 Data Set
-<<<<<<< HEAD
+
 menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=ASLYGZ62ND77PLVCXOBOLJTAH4HGO")
-=======
-menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=AOXKT2HVOERM36KHCF5HE4LAH4GQ6")
->>>>>>> 5913923107100514c3f69793d52dcd1de83b53f4
+
 
 # Changing column names to be more readable in menstrual_budget_df
 menstrual_budget_df <- menstrual_budget_df %>% 
