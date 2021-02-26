@@ -106,7 +106,7 @@ preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df ) +
                                                                              "preg_comp" = "Any Pregnancy Complications",
                                                                              "vag_discharge_comp" = "Vaginal Discharge Complications"))
 
-View(preg_comp_df)
+
 mens_comp_state_df <- preg_comp_df %>%
   group_by(States) %>%
   summarize(menstrual_related_comp = sum(menstrual_related_comp))
