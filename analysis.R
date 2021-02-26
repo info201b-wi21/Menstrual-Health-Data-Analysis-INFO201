@@ -33,6 +33,16 @@ menstrual_budget_df$`2017-18` <- as.numeric(menstrual_budget_df$`2017-18`)
 menstrual_budget_df$`2018-19` <- as.numeric(menstrual_budget_df$`2018-19`)
 menstrual_budget_df$`2019-20` <- as.numeric(menstrual_budget_df$`2019-20`)
 
+columns = list(
+  '2016-17' = 0,
+  '2017-18' = 0,
+  '2018-19' = 0,
+  '2019-20' = 0
+)
+
+menstrual_budget_df <- menstrual_budget_df %>% 
+  replace_na(columns)
+
 # Summary statistics
 preg_comp_stats <- summary(preg_comp_df$menstrual_related_comp)
 mens_budget_2016_17 <- summary(menstrual_budget_df$`2016-17`)
@@ -47,15 +57,7 @@ mens_budget_2017_18_sd <- sd(menstrual_budget_df$`2017-18`, na.rm = TRUE)
 mens_budget_2018_19_sd <- sd(menstrual_budget_df$`2018-19`, na.rm = TRUE)
 mens_budget_2019_20_sd <- sd(menstrual_budget_df$`2019-20`, na.rm = TRUE)
 
-columns = list(
-  '2016-17' = 0,
-  '2017-18' = 0,
-  '2018-19' = 0,
-  '2019-20' = 0
-)
-
-total_budgets_df <- menstrual_budget_df %>% 
-  replace_na(columns) %>% 
+total_budgets_df <- menstrual_budget_df %>%
   summarize(
     '2016-17' = sum(`2016-17`),
     '2017-18' = sum(`2017-18`),
