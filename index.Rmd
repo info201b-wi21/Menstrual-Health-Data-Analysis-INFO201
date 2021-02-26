@@ -10,7 +10,7 @@ source("analysis.R")
 
 ```
 
-## Problem Domain Description
+# Problem Domain Description
 
 Millions of women in India face great challenges to managing their menstrual 
 health and practicing menstrual hygiene. This is due to a number of enabling 
@@ -173,4 +173,10 @@ All NAs were replaced with 0s for calculations which could potentially misrepres
 that was actually there but not reported. In some cases, the could drive the average either
 up or down.
 
-## Specific Question Analyses
+# Specific Question Analyses
+
+- What policies are most effective in securing widespread access to feminine hygiene products in a more sexually conservative culture?
+
+- Why do certain regions produce more positive responses towards progressive menstrual health education than others?
+
+- Is there a relationship between the female to male ratio and overall menstrual health?
