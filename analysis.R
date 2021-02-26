@@ -140,7 +140,7 @@ preg_budget_df <- menstrual_budget_df %>%
   )
 
 preg_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_comp))) +
-  geom_point(size=3) +
+  geom_point(size=2) +
   geom_text(
     label=preg_budget_df$State,
     nudge_y=-.5
