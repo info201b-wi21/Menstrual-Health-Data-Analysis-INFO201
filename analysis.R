@@ -20,7 +20,7 @@ menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21
 menstrual_budget_df <- menstrual_budget_df %>% 
   rename(
     state_no = S.No,
-    state = State.UT,
+    States = State.UT,
     "2016-17" = X2016.17,
     "2017-18" = X2017.18,
     "2018-19" = X2018.19,
@@ -119,3 +119,35 @@ mens_comp_state_plot <- ggplot(data = mens_comp_state_df) +
   labs(title = "Menstrual Related Complications During Pregnancy by State",
        x = "States",
        y = "Menstrual Complications")
+
+###############################################
+# Analysis Question 1                         #
+###############################################
+
+# How do state's total spending budget
+# impact the number of menstrual related pregnancy
+# complications
+
+preggo_totals <- preg_comp_df %>% 
+  filter(Districts == 'Total')
+
+preg_budget_df <- menstrual_budget_df %>% 
+  inner_join(preggo_totals, by = 'States') %>% 
+  summarize(
+    State = States,
+    budget = `2016-17`,
+    mens_comp = menstrual_related_comp 
+  )
+
+preg_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_comp))) +
+  geom_point(size=3) +
+  geom_text(
+    label=preg_budget_df$State,
+    nudge_y=-.5
+    ) +
+  labs(
+    title = 'Menstrual Complications Against Budget',
+    x = 'Budget',
+    y = 'Percent Complications'
+  )
+  
