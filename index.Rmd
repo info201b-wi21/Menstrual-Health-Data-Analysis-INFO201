@@ -10,7 +10,7 @@ source("analysis.R")
 
 ```
 
-# Problem Domain Description
+## Problem Domain Description
 
 Millions of women in India face great challenges to managing their menstrual 
 health and practicing menstrual hygiene. This is due to a number of enabling 
@@ -32,9 +32,9 @@ these enabling factors. We will attempt to focus on the cause of these enabling
 factors and finding connections in data between socioeconomic backgrounds, 
 income levels, religion, caste, etc.
 
-# Data Description
+## Data Description
 
-## Percentage of Women Complication During Pregnancy Data Set
+### Percentage of Women Complication During Pregnancy Data Set
 Source: [Percentage of Women Complication During Pregnancy](https://data.gov.in/resources/percentage-women-who-had-any-pregnancy-complication-any-delivery-complication-any-post)
 
 This data set describes the percentage of women who had pregnancy complications 
@@ -61,7 +61,7 @@ The column names for this data set: <br>
 - vag_discharge_comp = % of Women with Problems with Vaginal Discharge in Last 3 Months <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
-### Summary Statistics
+### **Summary Statistics**
 ```{r, echo=FALSE}
 preg_comp_bar_graph
 ```
@@ -93,7 +93,7 @@ mens_comp_state_plot
 
 A notable outlier is `r mens_comp_state_df %>% filter(menstrual_related_comp == max(menstrual_related_comp)) %>% pull(States)`. This particular value is notable due to the fact that it indicates an unusually large amount of menstrual complications in relation to the rest of the data set. This can be attributable to the fact that West Bengal is one of the most populous states in the country. 
 
-## Menstrual Hygiene Scheme Budget 2016-2020 Data Set
+### Menstrual Hygiene Scheme Budget 2016-2020 Data Set
 Source: [Menstrual Hygiene Scheme Budget](https://data.gov.in/resources/stateut-wise-menstrual-hygiene-scheme-budget-approved-under-nhm-2016-17-2019-20-ministry)
 
 The data was released by Rajya Sabha (Council of States), the upper house of the 
@@ -117,7 +117,7 @@ The column names for this data set: <br>
 - 2018-19 Budget <br>
 - 2019-20 Budget <br>
 
-### Summary Statistics
+### **Summary Statistics**
 
 ```{r total_budgets_plot, echo = FALSE}
 
@@ -125,7 +125,7 @@ total_budgets_plot
 
 ```
 
-#### **2016-2017**
+#### *2016-2017*
 
 The average spending for the years of 2016-2017 is `r mean(mens_budget_2016_17)`.
 
@@ -133,7 +133,7 @@ The range of this data set is `r max(mens_budget_2016_17) - min(mens_budget_2016
 
 This data set comes with `r mens_budget_2016_17['NA\'s']` NA values.
 
-#### **2017-2018**
+#### *2017-2018*
 
 The average spending for the years of 2017-2018 is `r mean(mens_budget_2017_18)`.
 
@@ -141,7 +141,7 @@ The range of this data set is `r max(mens_budget_2017_18) - min(mens_budget_2017
 
 This data set comes with `r mens_budget_2017_18['NA\'s']` NA values.
 
-#### **2018-2019**
+#### *2018-2019*
 
 The average spending for the years of 2018-2019 is `r mean(mens_budget_2018_19)`.
 
@@ -149,7 +149,7 @@ The range of this data set is `r max(mens_budget_2018_19) - min(mens_budget_2018
 
 This data set comes with `r mens_budget_2018_19['NA\'s']` NA values.
 
-#### **2019-2020**
+#### *2019-2020*
 
 The average spending for the years of 2019-2020 is `r mean(mens_budget_2019_20)`.
 
@@ -173,8 +173,30 @@ All NAs were replaced with 0s for calculations which could potentially misrepres
 that was actually there but not reported. In some cases, the could drive the average either
 up or down.
 
-# Specific Question Analyses
+## Specific Question Analyses
 
 - (Both df) How do states' total spending budget impact the number of menstrual related pregnancy complications?
 - (Budegt df) For each year, which state contributes most into the budget?
 - (Preg df) Which complication makes up the largest proportion for each state?
+
+### States Spending vs. Number of Menstrual Related Pregnancy Complications
+
+**How does  the amount of each state's budget for a particular year impact the number of menstrual related complications?**
+
+For this question, our group wanted to investigate the different budget amounts spent by each state in the 2016-17 time frame to see if they had any correlation to the number of menstrual related pregnancy complications. We wanted to see if particular states were investing more efforts monetarily towards menstrual health, if that meant there would be less occurrences of menstrual related pregnancy complications.
+
+Firstly, to begin our data wrangling, we had to manipulate our pregnancy complications data frame to filter out for the totals of each specific complication from each state. We then created a new data set by joining the pregnancy totals data frame with our menstrual budget data frame, joining by states and filtered by state, budget, and the total menstrual budget complications. <br>
+
+```{r preg_budget_df, echo = FALSE}
+
+preg_budget_df
+
+```
+
+```{r preg_budget_plot, echo = FALSE}
+
+preg_budget_plot
+
+```
+
+
