@@ -216,3 +216,36 @@ to healthcare.
 In the end, we can not confidently answer our analysis question without more sufficient
 data from a wider sample of India's population. 
 
+### Distribution of State Menstrual Health Budget in 2019-2020
+
+**What does the distribution of the menstrual health budget look like in 2019-20 across different states in the data set?**
+
+For our data wrangling, we first filtered menstrual health budget data frame for
+the year 2019-20 where the budget is greater than 0. We then created a pie chart
+that would easily visualize the distribution of each state's budget from the year
+in relation to each other. <br>
+
+```{r budget_2019_20_df, echo = FALSE}
+
+budget_2019_20
+
+```
+
+```{r budget_2019_20_plot, echo = FALSE}
+
+budget_2019_20_plot
+
+```
+
+The data in the pie chart is inconclusive in answering our data analysis question.
+
+The most prominent outlier is the state of Rajasthan because they provided the largest
+spending budget, but it was also the state's only entry in the data frame. 
+
+Another stipulation is that the data set is the graph is not accurately representative
+of the entire population of India. There is ambiguity as to whether some regions listed
+in the data set are states versus cities. Additionally, there is the exclusion of 
+some states. 
+
+In the end, we can not confidently answer our analysis question without more sufficient
+data from a wider sample of India's population. 
