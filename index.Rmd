@@ -175,8 +175,6 @@ up or down.
 
 # Specific Question Analyses
 
-- What policies are most effective in securing widespread access to feminine hygiene products in a more sexually conservative culture?
-
-- Why do certain regions produce more positive responses towards progressive menstrual health education than others?
-
-- Is there a relationship between the female to male ratio and overall menstrual health?
+- (Both df) How do states' total spending budget impact the number of menstrual related pregnancy complications?
+- (Budegt df) For each year, which state contributes most into the budget?
+- (Preg df) Which complication makes up the largest proportion for each state?
