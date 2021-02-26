@@ -150,4 +150,17 @@ preg_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_co
     x = 'Budget',
     y = 'Percent Complications'
   )
-  
+
+###############################################
+# Analysis Question 3                         #
+###############################################
+budget_2019_20 <- menstrual_budget_df %>% 
+  filter(`2019-20` != 0)
+
+budget_2019_20_plot <- ggplot(budget_2019_20, aes(x='', y=`2019-20`, fill=States)) +
+  geom_bar(stat = 'identity') +
+  coord_polar('y', start=0) +
+  theme_void() +
+  labs(
+    title = 'Distribution of State Menstrual Health Budget in 2019-2020'
+  )
