@@ -199,4 +199,20 @@ preg_budget_plot
 
 ```
 
+The data in the graph is inconclusive in answering the analysis question. 
+
+Given our data sets, the joined data is not an accurate representation of the 
+population of India. There are only 11 out of the 23 states represented. This may be to the lack
+of responses of budget data and pregnancy complication data from particular states. 
+
+Additionally, there are some obvious outliers in the data seen in the graph further down the x-axis. West Bengal and Maharashtra are obvious outliers because they don't seem to be following the trend of decreasing number of complications with increasing budget. 
+
+However, currently if a line of best fit were to be drawn, there would be a loose 
+correlation between the budget spent in 2016-17 and the number of menstrual 
+related pregnancy complications present. It is yet to be determines if these are 
+truly correlated or if there may be a hidden variable such as birth rate or access 
+to healthcare. 
+
+In the end, we can not confidently answer our analysis question without more sufficient
+data from a wider sample of India's population. 
 
