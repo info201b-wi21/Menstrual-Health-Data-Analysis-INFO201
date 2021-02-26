@@ -94,6 +94,7 @@ preg_comp_by_state_df <- preg_comp_by_state_df %>% pivot_longer(cols=c(any_deliv
                                                                        vag_discharge_comp,
                                                                        menstrual_related_comp), 
                                                                 names_to="Complications")
+
 #scale_fill_discrete() adapted from https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/#rename-legend-labels-and-change-the-order-of-items
 preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df ) +
   geom_col(mapping=aes(x=States, y=value, fill=Complications)) +
@@ -106,7 +107,6 @@ preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df ) +
                                                                              "preg_comp" = "Any Pregnancy Complications",
                                                                              "vag_discharge_comp" = "Vaginal Discharge Complications"))
 
-
 mens_comp_state_df <- preg_comp_df %>%
   group_by(States) %>%
   summarize(menstrual_related_comp = sum(menstrual_related_comp))
@@ -117,5 +117,3 @@ mens_comp_state_plot <- ggplot(data = mens_comp_state_df) +
   labs(title = "Menstrual Related Complications During Pregnancy by State",
        x = "States",
        y = "Menstrual Complications")
-
-
