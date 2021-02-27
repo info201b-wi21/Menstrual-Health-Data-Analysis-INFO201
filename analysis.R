@@ -160,7 +160,8 @@ preg_budget_df <- menstrual_budget_df %>%
   summarize(
     State = States,
     budget = `2016-17`,
-    mens_comp = menstrual_related_comp 
+    mens_comp = menstrual_related_comp,
+    preg_comp = preg_comp
   )
 
 preg_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_comp))) +
@@ -187,4 +188,19 @@ budget_2019_20_plot <- ggplot(budget_2019_20, aes(x='', y=`2019-20`, fill=States
   theme_void() +
   labs(
     title = 'Distribution of State Menstrual Health Budget in 2019-2020'
+  )
+
+###############################################
+# Analysis Question 4                         #
+###############################################
+preg_comp_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_comp))) +
+  geom_point(size=2) +
+  geom_text(
+    label=preg_budget_df$State,
+    nudge_y=-.5
+  ) +
+  labs(
+    title = 'Menstrual Complications Against Budget',
+    x = 'Budget',
+    y = 'Percent Complications'
   )
