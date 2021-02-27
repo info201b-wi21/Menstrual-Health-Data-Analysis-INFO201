@@ -32,6 +32,19 @@ these enabling factors. We will attempt to focus on the cause of these enabling
 factors and finding connections in data between socioeconomic backgrounds, 
 income levels, religion, caste, etc.
 
+The first existing project we found is a country landscape analysis of menstrual health 
+in India. The report seeks to understand the current state of womens' health 
+in India and includes research from interviews from adolescent girls from rural 
+and urban areas.
+
+Source: [Menstrual Health in India - Country Landscape Analysis](https://www.susana.org/en/knowledge-hub/resources-and-publications/library/details/2581)
+
+The second existing project we examined studies the effect of a community-based health 
+education intervention on change in behavior, routines, and awareness in the menstrual 
+hygiene of rural adolescent girls.
+
+Source: [The Effect of Community-Based Health Education Intervention on Management of Menstrual Hygiene among Rural Indian Adolescent Girls](https://www.longwoods.com/content/19303/world-health-population/the-effect-of-community-based-health-education-intervention-on-management-of-menstrual-hygiene-among)
+
 ## **Data Description**
 
 ### Percentage of Women Complication During Pregnancy Data Set
@@ -82,6 +95,8 @@ released under the National Data Sharing and Accessibility Policy.
 This will help us identify the financial disparities in government menstrual
 health support programs by state, which can provide insight as to how attitudes 
 toward and the overall state of female menstrual health differ by state and region.
+
+The data set will look like this:
 
 ```{r menstrual_budget_df_sample, echo = FALSE}
 
@@ -191,8 +206,7 @@ preg_budget_plot
 - Results Evaluation: 
   - The data in the graph is inconclusive in answering the analysis question. 
   - Given our data sets, the joined data is not an accurate representation of the 
-population of India. There are only 11 out of the 23 states represented. This may be to the lack
-of responses of budget data and pregnancy complication data from particular states. 
+population of India. There are only 11 out of the 23 states represented. This may be to the lack of responses of budget data and pregnancy complication data from particular states. 
   - Additionally, there are some obvious outliers in the data seen in the graph further down the x-axis. West Bengal and Maharashtra are obvious outliers because they don't seem to be following the trend of decreasing number of complications with increasing budget. 
   - However, currently if a line of best fit were to be drawn, there would be a loose 
 correlation between the budget spent in 2016-17 and the number of menstrual 
@@ -205,7 +219,7 @@ data from a wider sample of India's population.
 
 ### States Spending vs. Total Percentage Pregnancy Complications
 
-**How does  the amount of each state's budget for a particular year impact the total percentage amount of pregnancy complications**
+**How does the does each states' budget correlate to the percentage of overall pregnancy complications?**
 
 - Introduction: 
   - For this question, our group wanted to investigate the different 
@@ -230,9 +244,20 @@ preg_comp_budget_plot
 
 ```
 
-
 - Results Evaluation:
-  - 
+  - Similar to the last graph, we cannot make any definite assumptions based on the
+  data set. The current data is not representative of India because out of the 28
+  total states, 23 were present in the data frame and only 11 were  present in both 
+  data sets when joined.
+  - Additionally, there are a few outliers in the data, explicitly seen in the graph. 
+  The states Tripura, West Bengal, Haryana, Maharashtra do not seem to be following the
+  trend of decreasing compliations by increasing budget.
+  - Regardless of the outliers, there seems to be loose correlation for the rest
+  of the states. This may be due to unforseen factors such as the ones stated above in
+  the previous analysis question.
+  - In conclusion, we cannot make any assumptions that menstrual-related pregnancy 
+  complications make any significant impact on the overall percentage of pregnancy
+  complications without more sufficient data from a wider range of data from all of India.
 
 ### Distribution of State Menstrual Health Budget in 2019-2020
 
@@ -294,3 +319,5 @@ preg_comp_bar_graph
   higher populations, such as West Bengal, Tamil Nadu, and Karnataka. 
   - An important thing to note is that the results displayed by our plot do not show a fully accurate
   picture of the real number of complications across India, rather an aggregation of percentages. 
+  
+  
