@@ -44,6 +44,9 @@ menstrual_budget_df <- menstrual_budget_df %>%
   replace_na(columns)
 
 # Summary statistics
+
+### MENSTRUAL BUDGET SUMMARY STATISTICS 
+
 preg_comp_stats <- summary(preg_comp_df$menstrual_related_comp)
 mens_budget_2016_17 <- summary(menstrual_budget_df$`2016-17`)
 mens_budget_2017_18 <- summary(menstrual_budget_df$`2017-18`) 
@@ -78,6 +81,8 @@ total_budgets_plot <- ggplot(data = total_budgets_df) +
   labs(
     title = 'Average Menstrual Budget per Fiscal Year'
   )
+
+### PREGNANCY COMPLICATIONS SUMMARY STATISTICS 
 
 preg_comp_by_state_df <- preg_comp_df %>% 
   group_by(States) %>% 
@@ -119,6 +124,24 @@ mens_comp_state_plot <- ggplot(data = mens_comp_state_df) +
   labs(title = "Menstrual Related Complications During Pregnancy by State",
        x = "States",
        y = "Menstrual Complications")
+
+
+mens_budget_line_df <- menstrual_budget_df %>%
+  filter(`2016-17` != 0,
+         `2017-18` != 0,
+         `2018-19` != 0,
+         `2019-20` != 0) %>%
+  pivot_longer(cols = c("2016-17", "2017-18", "2018-19", "2019-20"),
+                        names_to = "year")
+
+mens_budget_line_plot <- ggplot(data = mens_budget_line_df) +
+  geom_path(mapping = aes(x = year, y = value, color = States)) +
+  geom_point(mapping = aes(x = year, y = value, color = States)) +
+  labs(x = "Year",
+       y = "Total",
+       title = "Menstrual Budget for States with Complete Data")
+
+
 
 ###############################################
 # Analysis Question 1                         #

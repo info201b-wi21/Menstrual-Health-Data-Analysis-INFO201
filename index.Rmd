@@ -152,6 +152,16 @@ All NAs were replaced with 0s for calculations which could potentially misrepres
 that was actually there but not reported. In some cases, the could drive the average either
 up or down.
 
+``` {r mens_budget_line_plot, echo = FALSE}
+mens_budget_line_plot
+```
+
+#### **Outliers**
+
+We decided to use this form of plot to show the distribution of data to show the progression of 
+budget changes throughout the years of data collection by the states which have the most complete
+data values without any NA values. An outlier is shown within the budget line for Maharashtra, there is a steep decline for the data point of the years of 2018-19. The other states' budget point progressions are relatively more stable and don't have sudden budget changes. 
+
 ## Specific Question Analyses
 
 ### States Spending vs. Number of Menstrual Related Pregnancy Complications
