@@ -10,7 +10,7 @@ source("analysis.R")
 
 ```
 
-## Problem Domain Description
+## **Problem Domain Description**
 
 Millions of women in India face great challenges to managing their menstrual 
 health and practicing menstrual hygiene. This is due to a number of enabling 
@@ -32,7 +32,7 @@ these enabling factors. We will attempt to focus on the cause of these enabling
 factors and finding connections in data between socioeconomic backgrounds, 
 income levels, religion, caste, etc.
 
-## Data Description
+## **Data Description**
 
 ### Percentage of Women Complication During Pregnancy Data Set
 Source: [Percentage of Women Complication During Pregnancy](https://data.gov.in/resources/percentage-women-who-had-any-pregnancy-complication-any-delivery-complication-any-post)
@@ -61,14 +61,14 @@ The column names for this data set: <br>
 - vag_discharge_comp = % of Women with Problems with Vaginal Discharge in Last 3 Months <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
-### **Summary Statistics**
+### Summary Statistics (preg_comp_df)
 
 
 ``` {r, echo = FALSE}
 mens_comp_state_plot
 ```
 
-#### **Outliers**
+#### Outliers
 
 A notable outlier is `r mens_comp_state_df %>% filter(menstrual_related_comp == max(menstrual_related_comp)) %>% pull(States)`. This particular value is notable due to the fact that it indicates an unusually large amount of menstrual complications in relation to the rest of the data set. This can be attributable to the fact that West Bengal is one of the most populous states in the country. 
 
@@ -96,7 +96,7 @@ The column names for this data set: <br>
 - 2018-19 Budget <br>
 - 2019-20 Budget <br>
 
-### **Summary Statistics**
+### Summary Statistics (total_budgets_df)
 
 ```{r total_budgets_plot, echo = FALSE}
 
@@ -136,7 +136,7 @@ The range of this data set is `r max(mens_budget_2019_20) - min(mens_budget_2019
 
 This data set comes with `r mens_budget_2019_20['NA\'s']` NA values.
 
-#### **Outliers**
+#### Outliers
 
 For each fiscal year, there was a lot of missing data. At the maximum, there was data
 present for 17 states.
@@ -156,7 +156,7 @@ up or down.
 mens_budget_line_plot
 ```
 
-#### **Outliers**
+#### Outliers
 
 We decided to use this form of plot to show the distribution of data to show the progression of 
 budget changes throughout the years of data collection by the states which have the most complete
@@ -164,15 +164,17 @@ data values without any NA values. An outlier is shown within the budget line fo
 
 ## Specific Question Analyses
 
-### States Spending vs. Number of Menstrual Related Pregnancy Complications
+### States Spending vs. Menstrual Related Pregnancy Complications
 
-**How does  the amount of each state's budget for a particular year impact the number of menstrual related complications?**
+**How does  the amount of each state's budget for a particular year impact the percentage amount of menstrual related complications?**
 
 - Introduction:
   - For this question, our group wanted to investigate the different budget amounts spent by each state in the 2016-17 time frame to see if they had any correlation to the number of menstrual related pregnancy complications. We wanted to see if particular states were investing more efforts monetarily towards menstrual health, if that meant there would be less occurrences of menstrual related pregnancy complications.
   
 - Data Wrangling:
-  - Firstly, to begin our data wrangling, we had to manipulate our pregnancy complications data frame to filter out for the totals of each specific complication from each state. We then created a new data set by joining the pregnancy totals data frame with our menstrual budget data frame, joining by states and filtered by state, budget, and the total menstrual budget complications. <br>
+  - Firstly, to begin our data wrangling, we had to manipulate our pregnancy complications data frame to filter out for the totals of each specific
+  complication from each state. We then created a new data set by joining the pregnancy totals data frame with our menstrual budget data frame,
+  joining by states and filtered by state, budget, and the total menstrual budget complications. <br>
 
 ```{r preg_budget_df, echo = FALSE}
 
@@ -199,6 +201,38 @@ truly correlated or if there may be a hidden variable such as birth rate or acce
 to healthcare. 
   - In the end, we can not confidently answer our analysis question without more sufficient
 data from a wider sample of India's population. 
+
+
+### States Spending vs. Total Percentage Pregnancy Complications
+
+**How does  the amount of each state's budget for a particular year impact the total percentage amount of pregnancy complications**
+
+- Introduction: 
+  - For this question, our group wanted to investigate the different 
+budget amounts spent by each state in the 2016-17 time frame to see if they had
+any correlation to the total percentage amount of pregnancy complications. We used
+the same percentage of women with pregnancy complications data set as the last analysis
+question. Similar to the last analysis question, we wanted to be able to compare if menstrual
+related pregnancy complications play a large role in the total percentage amount
+of pregnancy complications. 
+
+- Data Wrangling: 
+  - Firstly, to begin our data wrangling, we had to manipulate our pregnancy 
+  complications data frame to filter out for the totals of each specific
+  complication from each state. We then created a new data set by joining the 
+  pregnancy totals data frame with our menstrual budget data frame,
+  joining by states and filtered by state, budget, and the total percentage 
+  of pregnancy complciations <br>
+  
+```{r preg_comp_budget_plot, echo = FALSE}
+
+preg_comp_budget_plot
+
+```
+
+
+- Results Evaluation:
+  - 
 
 ### Distribution of State Menstrual Health Budget in 2019-2020
 
@@ -260,5 +294,3 @@ preg_comp_bar_graph
   higher populations, such as West Bengal, Tamil Nadu, and Karnataka. 
   - An important thing to note is that the results displayed by our plot do not show a fully accurate
   picture of the real number of complications across India, rather an aggregation of percentages. 
-
-
