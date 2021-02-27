@@ -85,15 +85,14 @@ total_budgets_plot <- ggplot(data = total_budgets_df) +
 ### PREGNANCY COMPLICATIONS SUMMARY STATISTICS 
 
 preg_comp_by_state_df <- preg_comp_df %>% 
-  group_by(States) %>% 
+  filter(Districts=="Total") %>% 
+  group_by(`States`) %>% 
   summarize(preg_comp=sum(preg_comp),
             any_delivery_comp=sum(any_delivery_comp),
             any_post_delivery_comp=sum(any_post_delivery_comp),
             vag_discharge_comp=sum(vag_discharge_comp),
             menstrual_related_comp=sum(menstrual_related_comp))
 
-preg_comp_by_state_df <- preg_comp_by_state_df %>% 
-  mutate(total_comp= any_delivery_comp + preg_comp +any_post_delivery_comp + vag_discharge_comp + menstrual_related_comp)
 
 preg_comp_by_state_df <- preg_comp_by_state_df %>% pivot_longer(cols=c(any_delivery_comp,
                                                                        any_post_delivery_comp,
@@ -101,18 +100,20 @@ preg_comp_by_state_df <- preg_comp_by_state_df %>% pivot_longer(cols=c(any_deliv
                                                                        vag_discharge_comp,
                                                                        menstrual_related_comp), 
                                                                 names_to="Complications")
-
-#scale_fill_discrete() adapted from https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/#rename-legend-labels-and-change-the-order-of-items
-preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df ) +
-  geom_col(mapping=aes(x=States, y=value, fill=Complications)) +
-  coord_flip() +
+# font size adapted from https://stackoverflow.com/questions/3290330/facet-label-font-size 
+preg_comp_bar_graph <- ggplot(data=preg_comp_by_state_df, mapping=aes(x="", y=value, fill=Complications) ) +
+  geom_col(width=1, position="dodge") +
   labs(title = "Distribution of Pregnancy Complications by State",
        x = "States",
-       y = "Number of Cases") + scale_fill_brewer(palette="Dark2", labels= c("any_delivery_comp" = "Any Delivery Complication",
-                                                                             "any_post_delivery_comp" = "Any Post-delivery Complication",
-                                                                             "menstrual_related_comp" = "Menstrual-Related Complication",
-                                                                             "preg_comp" = "Any Pregnancy Complications",
-                                                                             "vag_discharge_comp" = "Vaginal Discharge Complications"))
+       y = "% Women Reporting") + 
+  scale_fill_brewer(palette="Dark2", labels= c("any_delivery_comp" = "Any Delivery Complication",
+                                               "any_post_delivery_comp" = "Any Post-delivery Complication",
+                                               "menstrual_related_comp" = "Menstrual-Related Complication",
+                                               "preg_comp" = "Any Pregnancy Complications",
+                                               "vag_discharge_comp" = "Vaginal Discharge Complications")) +
+  facet_wrap(~States) +  theme(strip.text.x = element_text(size = 3))
+
+
 
 mens_comp_state_df <- preg_comp_df %>%
   group_by(States) %>%
