@@ -62,28 +62,7 @@ The column names for this data set: <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
 ### **Summary Statistics**
-```{r, echo=FALSE}
-preg_comp_bar_graph
-```
 
-The minimum rate of pregnancy complications is `r min(preg_comp_stats)`%.
-
-The maximum rate of pregnancy complications is `r max(preg_comp_stats)`%.
-
-On average, the rate of pregnancy complications in India is `r mean(preg_comp_stats)`%.
-
-The overall standard deviation of this data set is fairly low and the mean and median
-are fairly close together therefore, we can assume that the data is well distributed.
-Additionally, the lack of NA values leads us to believe that the data set was
-collected in a consistent manner.
-
-#### **Outliers**
-
-A notable outlier is `r min(preg_comp_by_state_df$total_comp)` complications from 
-`r unique(preg_comp_by_state_df %>% filter(total_comp==min(total_comp)) %>% pull(States))`. 
-Other notable outliers are the four states with the highest complications, which
-are notable due to the fact that it may be simply the case that these states are among the most populous states in India and therefore may have a larger amount of cases due to 
-sheer numbers alone. 
 
 ``` {r, echo = FALSE}
 mens_comp_state_plot
@@ -175,17 +154,15 @@ up or down.
 
 ## Specific Question Analyses
 
-- (Both df) How do states' total spending budget impact the number of menstrual related pregnancy complications?
-- (Budegt df) For each year, which state contributes most into the budget?
-- (Preg df) Which complication makes up the largest proportion for each state?
-
 ### States Spending vs. Number of Menstrual Related Pregnancy Complications
 
 **How does  the amount of each state's budget for a particular year impact the number of menstrual related complications?**
 
-For this question, our group wanted to investigate the different budget amounts spent by each state in the 2016-17 time frame to see if they had any correlation to the number of menstrual related pregnancy complications. We wanted to see if particular states were investing more efforts monetarily towards menstrual health, if that meant there would be less occurrences of menstrual related pregnancy complications.
-
-Firstly, to begin our data wrangling, we had to manipulate our pregnancy complications data frame to filter out for the totals of each specific complication from each state. We then created a new data set by joining the pregnancy totals data frame with our menstrual budget data frame, joining by states and filtered by state, budget, and the total menstrual budget complications. <br>
+- Introduction:
+  - For this question, our group wanted to investigate the different budget amounts spent by each state in the 2016-17 time frame to see if they had any correlation to the number of menstrual related pregnancy complications. We wanted to see if particular states were investing more efforts monetarily towards menstrual health, if that meant there would be less occurrences of menstrual related pregnancy complications.
+  
+- Data Wrangling:
+  - Firstly, to begin our data wrangling, we had to manipulate our pregnancy complications data frame to filter out for the totals of each specific complication from each state. We then created a new data set by joining the pregnancy totals data frame with our menstrual budget data frame, joining by states and filtered by state, budget, and the total menstrual budget complications. <br>
 
 ```{r preg_budget_df, echo = FALSE}
 
@@ -199,28 +176,26 @@ preg_budget_plot
 
 ```
 
-The data in the graph is inconclusive in answering the analysis question. 
-
-Given our data sets, the joined data is not an accurate representation of the 
+- Results Evaluation: 
+  - The data in the graph is inconclusive in answering the analysis question. 
+  - Given our data sets, the joined data is not an accurate representation of the 
 population of India. There are only 11 out of the 23 states represented. This may be to the lack
 of responses of budget data and pregnancy complication data from particular states. 
-
-Additionally, there are some obvious outliers in the data seen in the graph further down the x-axis. West Bengal and Maharashtra are obvious outliers because they don't seem to be following the trend of decreasing number of complications with increasing budget. 
-
-However, currently if a line of best fit were to be drawn, there would be a loose 
+  - Additionally, there are some obvious outliers in the data seen in the graph further down the x-axis. West Bengal and Maharashtra are obvious outliers because they don't seem to be following the trend of decreasing number of complications with increasing budget. 
+  - However, currently if a line of best fit were to be drawn, there would be a loose 
 correlation between the budget spent in 2016-17 and the number of menstrual 
 related pregnancy complications present. It is yet to be determines if these are 
 truly correlated or if there may be a hidden variable such as birth rate or access 
 to healthcare. 
-
-In the end, we can not confidently answer our analysis question without more sufficient
+  - In the end, we can not confidently answer our analysis question without more sufficient
 data from a wider sample of India's population. 
 
 ### Distribution of State Menstrual Health Budget in 2019-2020
 
 **What does the distribution of the menstrual health budget look like in 2019-20 across different states in the data set?**
 
-For our data wrangling, we first filtered menstrual health budget data frame for
+- Data Wrangling:
+  - For our data wrangling, we first filtered menstrual health budget data frame for
 the year 2019-20 where the budget is greater than 0. We then created a pie chart
 that would easily visualize the distribution of each state's budget from the year
 in relation to each other. <br>
@@ -237,15 +212,43 @@ budget_2019_20_plot
 
 ```
 
-The data in the pie chart is inconclusive in answering our data analysis question.
-
-The most prominent outlier is the state of Rajasthan because they provided the largest
+- Results Evaluation: 
+  - The data in the pie chart is inconclusive in answering our data analysis question.
+  - The most prominent outlier is the state of Rajasthan because they provided the largest
 spending budget, but it was also the state's only entry in the data frame. 
-
-Another stipulation is that the data set is the graph is not accurately representative
+  - Another stipulation is that the data set is the graph is not accurately representative
 of the entire population of India. There is ambiguity as to whether some regions listed
 in the data set are states versus cities. Additionally, there is the exclusion of 
 some states. 
-
-In the end, we can not confidently answer our analysis question without more sufficient
+  - In the end, we can not confidently answer our analysis question without more sufficient
 data from a wider sample of India's population. 
+
+
+### Distribution of Pregnancy Complications by State
+
+**What is the distribution of pregnancy complications by state?**
+
+- Data Wrangling:
+  - For our data wrangling, we decided to group by state, use a summarize function to aggregate all of the values for each type of complication and created a new column to include all of these values. Finally, we used the pivot_longer() function to include percentages for each complication. 
+
+```{r preg_comp_by_state_df, echo = FALSE}
+head(preg_comp_by_state_df)
+```
+
+```{r preg_comp_bar_graph, echo=FALSE}
+preg_comp_bar_graph
+```
+
+- Results Evaluation:
+  - One of the first things to note when evaluating the results is the surveying 
+  method that was most likely used. When adding up the various pregnancy complications they exceed 
+  100%. This leads us to conclude that the complications are not mutually exclusive, implying that
+  a woman could have post-delivery complications while also experiencing menstrual-related
+  complications. 
+  - There is a positive correlation between the length of the bars and the most populous states in
+  India. This means that there are more numbers of complications of all types within states that have
+  higher populations, such as West Bengal, Tamil Nadu, and Karnataka. 
+  - An important thing to note is that the results displayed by our plot do not show a fully accurate
+  picture of the real number of complications across India, rather an aggregation of percentages. 
+
+
