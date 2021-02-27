@@ -193,14 +193,14 @@ budget_2019_20_plot <- ggplot(budget_2019_20, aes(x='', y=`2019-20`, fill=States
 ###############################################
 # Analysis Question 4                         #
 ###############################################
-preg_comp_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=mens_comp))) +
+preg_comp_budget_plot <- ggplot(data=preg_budget_df, mapping=(aes(x=budget, y=preg_comp))) +
   geom_point(size=2) +
   geom_text(
     label=preg_budget_df$State,
     nudge_y=-.5
   ) +
   labs(
-    title = 'Menstrual Complications Against Budget',
+    title = 'Overall Pregnancy Complications Against Budget',
     x = 'Budget',
     y = 'Percent Complications'
   )
