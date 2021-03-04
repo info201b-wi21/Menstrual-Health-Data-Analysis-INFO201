@@ -264,6 +264,13 @@ preg_comp_budget_plot
 
 **What does the distribution of the menstrual health budget look like in 2019-20 across different states in the data set?**
 
+- Introduction:
+  - Our group created this analysis question to investigate the most recent menstrual budget 
+  data and how the quantities of spending are broken down by state. We wanted to be able to get
+  an idea of the spending by state and the comparison between budgets for the most recent time 
+  frame. We figured that the best way to visualize this is using a pie chart in order to
+  understand the size of the budget distribution with different slices of the pie. 
+
 - Data Wrangling:
   - For our data wrangling, we first filtered menstrual health budget data frame for
 the year 2019-20 where the budget is greater than 0. We then created a pie chart
@@ -297,6 +304,13 @@ data from a wider sample of India's population.
 ### Distribution of Pregnancy Complications by State
 
 **What is the distribution of pregnancy complications by state?**
+
+- Introduction:
+  - As a group, wanted to be able to pinpoint the most common types of pregnancy complication by
+  state. Therefore, we decided to visualize the percentages of complications across the 
+  data time period as a faceted bar graph. The distribution of pregnancy complications by state 
+  is easily comparable in this manner and summarizes the most common type of complication in an 
+  easy-to-read fashion. 
 
 - Data Wrangling:
   - For our data wrangling, we decided to group by state, use a summarize function to aggregate all of the values for each type of complication and created a new column to include all of these values. Finally, we used the pivot_longer() function to include percentages for each complication. 
