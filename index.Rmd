@@ -6,6 +6,7 @@ date: "_March 2021_"
 
 ```{r setup, include = FALSE}
 
+library('knitr')
 source("analysis.R")
 
 ```
@@ -63,7 +64,7 @@ The data set will look like this:
 
 ```{r preg_comp_df_sample, echo = FALSE}
 
-head(preg_comp_df)
+kable(head(preg_comp_df))
 
 ```
 
@@ -100,7 +101,7 @@ The data set will look like this:
 
 ```{r menstrual_budget_df_sample, echo = FALSE}
 
-head(menstrual_budget_df)
+kable(head(menstrual_budget_df))
 
 ```
 
@@ -193,7 +194,7 @@ data values without any NA values. An outlier is shown within the budget line fo
 
 ```{r preg_budget_df, echo = FALSE}
 
-preg_budget_df
+kable(preg_budget_df)
 
 ```
 
@@ -271,7 +272,7 @@ in relation to each other. <br>
 
 ```{r budget_2019_20_df, echo = FALSE}
 
-budget_2019_20
+kable(budget_2019_20)
 
 ```
 
@@ -301,7 +302,7 @@ data from a wider sample of India's population.
   - For our data wrangling, we decided to group by state, use a summarize function to aggregate all of the values for each type of complication and created a new column to include all of these values. Finally, we used the pivot_longer() function to include percentages for each complication. 
 
 ```{r preg_comp_by_state_df, echo = FALSE}
-head(preg_comp_by_state_df)
+kable(head(preg_comp_by_state_df))
 ```
 
 ```{r preg_comp_bar_graph, echo=FALSE}
