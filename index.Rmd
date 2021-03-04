@@ -82,6 +82,37 @@ The column names for this data set: <br>
 mens_comp_state_plot
 ```
 
+#### *Percent of Women with Menstrual Complications*
+
+The mean percentage of women reporting menstrual complications was `r mean(menstrual_comp_summary)`. 
+
+These percentages ranged from `r min(menstrual_comp_summary)`% to `r max(menstrual_comp_summary)`%. 
+
+#### *Percent of Women with Pregnancy Complications*
+
+The mean percentage of women reporting pregnancy complications was `r mean(preg_comp_summary)`
+
+These percentages ranged form `r min(preg_comp_summary)`% to `r max(preg_comp_summary)`%. 
+
+#### *Percentage of Women with Delivery Complications*
+
+The mean percentage of women reporting delivery complications was `r mean(delivery_comp_summary)`%. 
+
+These percentages ranged from `r min(delivery_comp_summary)`% to  `r max(delivery_comp_summary)`%. 
+
+#### *Percentage of Women with Vaginal Discharge Complications* 
+
+The mean percentage of women reporting vaginal discharge complications was `r mean(vag_discharge_comp_summary)`%. 
+
+These percentages ranged from `r min(vag_discharge_comp_summary)`% to `r max(vag_discharge_comp_summary)`%. 
+
+#### *Percentage of Women with Post-Delivery Complications*
+
+The mean percentage of women reporting post-delivery complications was `r mean(post_delivery_comp_summary)`%. 
+
+These percentages range from `r min(post_delivery_comp_summary)`% to `r max(post_delivery_comp_summary)`%. 
+
+
 #### Outliers
 
 A notable outlier is `r mens_comp_state_df %>% filter(menstrual_related_comp == max(menstrual_related_comp)) %>% pull(States)`. This particular value is notable due to the fact that it indicates an unusually large amount of menstrual complications in relation to the rest of the data set. This can be attributable to the fact that West Bengal is one of the most populous states in the country. 

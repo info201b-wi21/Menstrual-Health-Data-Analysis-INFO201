@@ -84,6 +84,13 @@ total_budgets_plot <- ggplot(data = total_budgets_df) +
 
 ### PREGNANCY COMPLICATIONS SUMMARY STATISTICS 
 
+menstrual_comp_summary <- summary(preg_comp_df$menstrual_related_comp)
+preg_comp_summary <- summary(preg_comp_df$preg_comp)
+delivery_comp_summary <- summary(preg_comp_df$any_delivery_comp)
+post_delivery_comp_summary <- summary(preg_comp_df$any_post_delivery_comp)
+vag_discharge_comp_summary <- summary(preg_comp_df$vag_discharge_comp)
+
+
 preg_comp_by_state_df <- preg_comp_df %>% 
   filter(Districts=="Total") %>% 
   group_by(`States`) %>% 
