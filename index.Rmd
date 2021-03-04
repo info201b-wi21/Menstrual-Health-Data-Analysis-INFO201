@@ -68,50 +68,24 @@ kable(head(preg_comp_df))
 
 ```
 
+*The above table is a sample of the data set preg_comp_df.*
+
 The column names for this data set: <br> 
-- any_preg_comp = % Of Women with Any Pregnancy Complications <br>
+- preg_comp = % Of Women with Any Pregnancy Complications <br>
 - any_delivery_comp = % of Woman with Delivery Complications <br>
 - any_post_delivery_comp = % of Women with Post-Delivery Complications <br>
 - vag_discharge_comp = % of Women with Problems with Vaginal Discharge in Last 3 Months <br>
 - menstrual_related_comp = % of Women with Menstrual Related Problems in Last 3 Months <br>
 
-### Summary Statistics (preg_comp_df)
+#### Summary Statistics (preg_comp_df)
 
 
 ``` {r, echo = FALSE}
 mens_comp_state_plot
 ```
 
-#### *Percent of Women with Menstrual Complications*
-
-The mean percentage of women reporting menstrual complications was `r mean(menstrual_comp_summary)`. 
-
-These percentages ranged from `r min(menstrual_comp_summary)`% to `r max(menstrual_comp_summary)`%. 
-
-#### *Percent of Women with Pregnancy Complications*
-
-The mean percentage of women reporting pregnancy complications was `r mean(preg_comp_summary)`
-
-These percentages ranged form `r min(preg_comp_summary)`% to `r max(preg_comp_summary)`%. 
-
-#### *Percentage of Women with Delivery Complications*
-
-The mean percentage of women reporting delivery complications was `r mean(delivery_comp_summary)`%. 
-
-These percentages ranged from `r min(delivery_comp_summary)`% to  `r max(delivery_comp_summary)`%. 
-
-#### *Percentage of Women with Vaginal Discharge Complications* 
-
-The mean percentage of women reporting vaginal discharge complications was `r mean(vag_discharge_comp_summary)`%. 
-
-These percentages ranged from `r min(vag_discharge_comp_summary)`% to `r max(vag_discharge_comp_summary)`%. 
-
-#### *Percentage of Women with Post-Delivery Complications*
-
-The mean percentage of women reporting post-delivery complications was `r mean(post_delivery_comp_summary)`%. 
-
-These percentages range from `r min(post_delivery_comp_summary)`% to `r max(post_delivery_comp_summary)`%. 
-
+*The above plot describes the distribution of menstrual related complications 
+during pregnancy cases across various states from the pre_comp_df data frame.*
 
 #### Outliers
 
@@ -136,6 +110,8 @@ kable(head(menstrual_budget_df))
 
 ```
 
+*The above table is a sample of the data set menstual_budget_df*
+
 The column names for this data set: <br>
 - state_no = State No. in Alphabetical Order <br>
 - 2016-17 Budget <br>
@@ -143,13 +119,16 @@ The column names for this data set: <br>
 - 2018-19 Budget <br>
 - 2019-20 Budget <br>
 
-### Summary Statistics (total_budgets_df)
+#### Summary Statistics (total_budgets_df)
 
 ```{r total_budgets_plot, echo = FALSE}
 
 total_budgets_plot
 
 ```
+
+*The above plot visualizes the average budget spent by all the states in the 
+data set on menstrual related policies*
 
 #### *2016-2017*
 
@@ -202,6 +181,9 @@ up or down.
 ``` {r mens_budget_line_plot, echo = FALSE}
 suppressMessages(plot(mens_budget_line_plot))
 ```
+
+*The above plot visualizes the budget for each state (with no missing values in the
+the data set) from 2016-2020.*
 
 #### Outliers
 
