@@ -1,7 +1,7 @@
 library("tidyverse")
 
 # Percentage of Women Complication During Pregnancy Data Set
-preg_comp_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Percentage_Women_complication_Pregnancy_delivery_post-delivery_vaginal_discharge_menstrual_DLHS4.csv?token=ASLYGZ6BNUFHNDYR2FSFJKDAHRQ6M")
+preg_comp_df <- read.csv("data/Percentage_Women_complication_Pregnancy_delivery_post-delivery_vaginal_discharge_menstrual_DLHS4.csv")
 
 # Changing column names to be more readable in preg_comp_df
 preg_comp_df <- preg_comp_df %>% 
@@ -14,7 +14,7 @@ preg_comp_df <- preg_comp_df %>%
     )
 
 # Menstrual Hygiene Scheme Budget 2016-2020 Data Set
-menstrual_budget_df <- read.csv("https://raw.githubusercontent.com/info201b-wi21/project-franchezcalayog/main/data/Menstrual_Budget.csv?token=AOXKT2HVOERM36KHCF5HE4LAH4GQ6")
+menstrual_budget_df <- read.csv("data/Menstrual_Budget.csv")
 
 # Changing column names to be more readable in menstrual_budget_df
 menstrual_budget_df <- menstrual_budget_df %>% 
