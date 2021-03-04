@@ -168,7 +168,7 @@ that was actually there but not reported. In some cases, the could drive the ave
 up or down.
 
 ``` {r mens_budget_line_plot, echo = FALSE}
-mens_budget_line_plot
+suppressMessages(plot(mens_budget_line_plot))
 ```
 
 #### Outliers
