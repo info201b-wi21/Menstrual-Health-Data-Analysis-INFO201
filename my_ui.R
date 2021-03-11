@@ -1,5 +1,6 @@
 source('my_server.R')
-
+library('shiny')
+budget_range <- range(preg_budget_df$budget)
 my_ui <- fluidPage(
   h1('Menstrual Health and Sexual Education in India'),
   em('Group G2: Kriti Vajjhula, Franchezca Layog, Ian Chandramouli, & Harmeet Singh'),
@@ -92,20 +93,30 @@ my_ui <- fluidPage(
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 sliderInput(inputId="menstrual_budget_slider", label="Choose max budget to display",
+                             min= 0,
+                             max = 700,
+                             value = 400)
                ),
                
                # Main panel
                mainPanel(
+                 plotOutput(outputId="mens_budget_plot" )
                )
              )),
     tabPanel(title='Analysis Question 4',
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 sliderInput(inputId="overall_budget_slider", label="Choose max budget to display",
+                             min=0,
+                             max=700,
+                             value=400)
                ),
                
                # Main panel
                mainPanel(
+                 plotOutput(outputId="overall_budget_plot")
                )
              ))
   ),
