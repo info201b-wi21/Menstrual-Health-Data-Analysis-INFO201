@@ -108,7 +108,7 @@ my_ui <- fluidPage(
                )
              )
     
-   ),
+    ),
     
     tabPanel(title='Analysis Question 3',
              sidebarLayout(
@@ -132,6 +132,6 @@ my_ui <- fluidPage(
                mainPanel(
                )
              )
-  )
+    )
   )
 )
