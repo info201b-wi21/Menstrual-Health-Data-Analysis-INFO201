@@ -83,11 +83,12 @@ my_ui <- fluidPage(
                  )
                 ),
                
-                 # Main panel - Visualizations
-                 mainPanel(
-                   plotOutput("analysis_q1")
-                 )
+               # Main panel - Visualizations
+               mainPanel(
+                 plotOutput("analysis_q1")
                )
+             )
+    ),
               
     tabPanel(title='Analysis Question 2',
              sidebarLayout(
@@ -98,15 +99,17 @@ my_ui <- fluidPage(
                    label = "Select Year:",
                    choices = c("2016-17" = "2016-17", "2017-18" = "2017-18", 
                                "2018-19" = "2018-19", "2019-20" = "2019-20" )
-                  ),
-                 
-                 # Main panel
-                 mainPanel(
-                   outputPlot("analysis_q2")
                  )
+               ),
+                 
+               # Main panel
+               mainPanel(
+                 plotOutput("analysis_q2")
                )
              )
-    ),
+    
+   ),
+    
     tabPanel(title='Analysis Question 3',
              sidebarLayout(
                # Controls panel
@@ -117,7 +120,8 @@ my_ui <- fluidPage(
                mainPanel(
                )
              )
-            ),
+    ),
+   
     tabPanel(title='Analysis Question 4',
              sidebarLayout(
                # Controls panel
@@ -128,5 +132,6 @@ my_ui <- fluidPage(
                mainPanel(
                )
              )
-  )))
+  )
+  )
 )
