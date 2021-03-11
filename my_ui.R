@@ -70,12 +70,21 @@ my_ui <- fluidPage(
                 toward and the overall state of female menstrual health differ by state and region.')),
     tabPanel(title='Analysis Question 1',
              sidebarLayout(
-               # Controls panel
+               # Controls panel - Intro of Question & User interaction
                sidebarPanel(
+                 selectInput(
+                   inputId ="comp", 
+                   label = "Complication Types:",
+                   choices = c("Any Delivery Complication" = "any_delivery_comp",
+                                "Any Post-delivery Complication" = "any_post_delivery_comp",
+                                "Menstrual-Related Complication" = "menstrual_related_comp",
+                                "Any Pregnancy Complications" = "preg_comp",
+                                "Vaginal Discharge Complications" = "vag_discharge_comp"))
                ),
                
-               # Main panel
+               # Main panel - Visualizations
                mainPanel(
+                 plotOutput("analysis_q1")
                )
              )),
     tabPanel(title='Analysis Question 2',
