@@ -146,7 +146,8 @@ my_ui <- fluidPage(
              sidebarLayout(
                # Controls panel
                sidebarPanel(
-                 sliderInput(inputId="menstrual_budget_slider", label="Choose max budget to display",
+                 sliderInput(inputId="menstrual_budget_slider", 
+                             label="Choose Max Budget",
                              min= 0,
                              max = 700,
                              value = 400)
@@ -154,7 +155,14 @@ my_ui <- fluidPage(
                
                # Main panel
                mainPanel(
-                 plotOutput(outputId="mens_budget_plot" )
+                 h4("How does the amount of each state's budget impact the percentage 
+                    of menstrual related complications?"),
+                 plotOutput(outputId="mens_budget_plot" ),
+                 p("The visualization shown above shows each state's menstrual complications by
+                   percentage plotted against the maximum budget indicated by the slider
+                   input. There is a negative correlation of about -22%, meaning that the lower
+                   the state budget value, the higher the percent of menstrual complications."),
+                 textOutput(outputId = "reactive_description_q3")
                )
              )
     ),
@@ -171,7 +179,15 @@ my_ui <- fluidPage(
                
                # Main panel
                mainPanel(
-                 plotOutput(outputId="overall_budget_plot")
+                 h4("How does each state's budget correlate to the overall percentage of pregnancy
+                    complications?"),
+                 plotOutput(outputId="overall_budget_plot"),
+                 p("The visualization shown above shows each state's overall pregnancy complications
+                   by percentage plotted against the maximum budget indicated by the slider input.
+                   There is a negative correlation of about -42%, meaning that the lower the state 
+                   budget value, the higher the percent value of overall pregnancy complications."),
+                 textOutput(outputId = "reactive_description_q4")
+            
                )
              )
     )
