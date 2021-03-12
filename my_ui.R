@@ -2,8 +2,9 @@ source('my_server.R')
 library('shiny')
 budget_range <- range(preg_budget_df$budget)
 my_ui <- fluidPage(
-  h1('Menstrual Health and Sexual Education in India'),
+  h1(strong('Menstrual Health and Sexual Education in India')),
   em('Group G2: Kriti Vajjhula, Franchezca Layog, Ian Chandramouli, & Harmeet Singh'),
+  hr(),
   tabsetPanel(
     type='tabs',
     tabPanel(title='Home',
@@ -32,7 +33,8 @@ my_ui <- fluidPage(
                 in India. The report seeks to understand the current state of womens\' health 
                 in India and includes research from interviews from adolescent girls from rural 
                 and urban areas.'),
-             br(),
+             p("To view our group's Exploratory Report, you can find it at the following link:"),
+             a("Menstrual Health & Sexual Education In India", href="https://info201b-wi21.github.io/project-franchezcalayog/index.html"),
              
              h3('Sources From Previous Projects'),
              p('The first existing project we found is a country landscape analysis of menstrual health 
@@ -46,6 +48,7 @@ my_ui <- fluidPage(
                 education intervention on change in behavior, routines, and awareness in the menstrual 
                 hygiene of rural adolescent girls.'),
              a('The Effect of Community-Based Health Education Intervention on Management of Menstrual Hygiene among Rural Indian Adolescent Girls', href='https://www.longwoods.com/content/19303/world-health-population/the-effect-of-community-based-health-education-intervention-on-management-of-menstrual-hygiene-among'),
+             hr(),
              
              h2('Data Description'),
              h3('Percentage of Women Complication During Pregnancy Data Set'),
@@ -58,7 +61,6 @@ my_ui <- fluidPage(
                 in women\'s menstrual healthcare. This dataset provides information about 
                individual districts which can be used jointly with another dataset to answer 
                our questions.'),
-             br(),
              
              h3('Menstrual Hygiene Scheme Budget 2016-2020 Data Set'),
              a('Menstrual Hygiene Scheme Budget', href='https://data.gov.in/resources/stateut-wise-menstrual-hygiene-scheme-budget-approved-under-nhm-2016-17-2019-20-ministry'),
@@ -69,10 +71,18 @@ my_ui <- fluidPage(
                 This will help us identify the financial disparities in government menstrual
                 health support programs by state, which can provide insight as to how attitudes 
                 toward and the overall state of female menstrual health differ by state and region.')),
+    
+    # Analysis Q1 Tab: Dis. of Pregnancy Complications by State
     tabPanel(title='Analysis Question 1',
              sidebarLayout(
                # Controls panel - Intro of Question & User interaction
                sidebarPanel(
+                 h4(strong("Distribution of Pregnancy Complications by State")),
+                 p("Users may investigate the distribution of different types of
+                    pregnancy complications in various states on their own. Users must simply
+                    click and select one of the pregnancy complication types from the drop 
+                    down menu to see the corresponding visualization."),
+                 hr(),
                  selectInput(
                    inputId ="comp", 
                    label = "Complication Types:",
@@ -81,7 +91,16 @@ my_ui <- fluidPage(
                                 "Menstrual-Related Complication" = "menstrual_related_comp",
                                 "Any Pregnancy Complications" = "preg_comp",
                                 "Vaginal Discharge Complications" = "vag_discharge_comp")
-                 )
+                 ),
+                 hr(),
+                 helpText(em("Note: When evaluating, when adding up the various
+                              pregnancy complications they exceed 100%. This leads us to conclude that the complications are not 
+                              mutually exclusive, implying that a woman could have post-delivery
+                              complications while also experiencing menstrual-related complications. ")),
+                 br(),
+                 helpText(em("The results displayed by our plot do not show a fully accurate
+                             picture of the real number of complications across India, 
+                             rather an aggregation of percentages."))
                 ),
                
                # Main panel - Visualizations
@@ -95,12 +114,24 @@ my_ui <- fluidPage(
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 h4(strong("Distribution of State Menstrual Health Budget")),
+                 p("Users may investigate the menstrual budget data for a selected year 
+                    and see how the quanitities of spending are broken down by state. Simply
+                    click and select one of the years from the drop down menu to view the
+                    distribution of spending from each state for that corresponding year"),
+                 hr(),
                  selectInput(
                    inputId = "year",
                    label = "Select Year:",
                    choices = c("2016-17" = "2016-17", "2017-18" = "2017-18", 
                                "2018-19" = "2018-19", "2019-20" = "2019-20" )
-                 )
+                 ),
+                 hr(),
+                 helpText(em("Note: A stipulation of the data set is that
+                              the graph does not accurately representative of the entire 
+                              population of India. There is ambiguity as to whether 
+                              some regions listed in the data set are states versus 
+                              cities. Additionally, there is the exclusion of some states."))
                ),
                  
                # Main panel
