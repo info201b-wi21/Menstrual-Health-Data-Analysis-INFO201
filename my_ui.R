@@ -71,24 +71,46 @@ my_ui <- fluidPage(
                 toward and the overall state of female menstrual health differ by state and region.')),
     tabPanel(title='Analysis Question 1',
              sidebarLayout(
-               # Controls panel
+               # Controls panel - Intro of Question & User interaction
                sidebarPanel(
-               ),
+                 selectInput(
+                   inputId ="comp", 
+                   label = "Complication Types:",
+                   choices = c("Any Delivery Complication" = "any_delivery_comp",
+                                "Any Post-delivery Complication" = "any_post_delivery_comp",
+                                "Menstrual-Related Complication" = "menstrual_related_comp",
+                                "Any Pregnancy Complications" = "preg_comp",
+                                "Vaginal Discharge Complications" = "vag_discharge_comp")
+                 )
+                ),
                
-               # Main panel
+               # Main panel - Visualizations
                mainPanel(
+                 plotOutput("analysis_q1")
                )
-             )),
+             )
+    ),
+              
     tabPanel(title='Analysis Question 2',
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 selectInput(
+                   inputId = "year",
+                   label = "Select Year:",
+                   choices = c("2016-17" = "2016-17", "2017-18" = "2017-18", 
+                               "2018-19" = "2018-19", "2019-20" = "2019-20" )
+                 )
                ),
-               
+                 
                # Main panel
                mainPanel(
+                 plotOutput("analysis_q2")
                )
-             )),
+             )
+    
+    ),
+    
     tabPanel(title='Analysis Question 3',
              sidebarLayout(
                # Controls panel
@@ -103,7 +125,9 @@ my_ui <- fluidPage(
                mainPanel(
                  plotOutput(outputId="mens_budget_plot" )
                )
-             )),
+             )
+    ),
+   
     tabPanel(title='Analysis Question 4',
              sidebarLayout(
                # Controls panel
@@ -118,6 +142,7 @@ my_ui <- fluidPage(
                mainPanel(
                  plotOutput(outputId="overall_budget_plot")
                )
-             ))
-  ),
+             )
+    )
+  )
 )
