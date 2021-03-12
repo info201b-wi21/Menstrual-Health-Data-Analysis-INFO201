@@ -108,8 +108,14 @@ my_ui <- fluidPage(
                  h3("What is the Distribution of Pregnancy Complications by State?"),
                  br(),
                  plotOutput("analysis_q1"),
-                 p("The visualization shown above shows the breakdown of complications for each 
-                   recorded state. The complication type is selected through the dropdown.")
+                 p("The visualization shown above shows the breakdown of 
+                   complications for each recorded state. There is a positive 
+                   correlation between the length of the barsand the most populous 
+                   states in India. This means that there are more numbers of complications 
+                   of all types within states that have higher populations, such 
+                   as West Bengal, Tamil Nadu, and Karnataka."),
+                 br(),
+                 textOutput('reactive_description_q1')
                )
              )
     ),
@@ -140,7 +146,20 @@ my_ui <- fluidPage(
                  
                # Main panel
                mainPanel(
-                 plotOutput("analysis_q2")
+                 h3("What does the distribution of the menstrual health budget look 
+                    like across different states in the data set?"),
+                 br(),
+                 plotOutput("analysis_q2"),
+                 p("Originally when our group did our investigation, we chose to analyze
+                   the distribution of the health budgeth acorss the various states in the
+                   data set in only the year 2019-20. This was the year with the least 
+                   missing data. From that year, we noticed that The most prominent 
+                   outlier is the state of Rajasthan because they provided the largest 
+                   spending budget, but it was also the state's only entry in the 
+                   data frame. In the end, we can not confidently answer our analysis 
+                   question without more sufficient data from a wider sample of India's population."),
+                 br(),
+                 textOutput('reactive_description_q2')
                )
              )
     

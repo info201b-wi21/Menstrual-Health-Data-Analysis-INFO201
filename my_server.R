@@ -79,6 +79,20 @@ my_server <- function(input, output) {
     return(plot)
   })
   
+  output$reactive_description_q1 <- renderText({
+    q1_data <- preg_comp_by_state_df %>% 
+      filter(Complications == input$comp)
+    comp_type <-
+      switch(input$comp,
+             'any_delivery_comp' = 'any delivery complication',
+             'any_post_delivery_comp' = 'any post delivery complication',
+             'preg_comp' = 'any pregnancy complication',
+             'vag_discharge_comp' = 'any vaginal complication',
+             'menstrual_related_comp' = 'any menstrual complication')
+    paste("For ", comp_type, ", the maximum percentage of complications is ", 
+          max(q1_data$value), "% of women.", sep='')
+  })
+  
   
   ## PLOT FOR ANALYSIS QUESTION 2
   output$analysis_q2 <-renderPlot({
@@ -95,6 +109,17 @@ my_server <- function(input, output) {
       ) +
       theme(text = element_text(size = 17))
     return(plot)
+  })
+  
+  output$reactive_description_q2 <- renderText({
+    q2_data <- menstrual_budget_df %>% 
+      filter(get(input$year) == max(get(input$year))) %>% 
+      select(States)
+
+    
+    
+    paste('For the year of ', input$year, ', the state that spent the most',
+          ' on menstrual health was ', q2_data$States, '.', sep='')
   })
   
 }
