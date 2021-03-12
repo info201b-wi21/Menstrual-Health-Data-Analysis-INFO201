@@ -5,8 +5,7 @@ source('analysis.R')
 
 my_server <- function(input, output) {
   
-## PLOT FOR ANALYSIS QUESTION 3
-  
+  ## PLOT FOR ANALYSIS QUESTION 3
   output$mens_budget_plot <- renderPlot({
     preg_budget_filtered_df <- preg_budget_df %>% 
       filter(budget<=input$menstrual_budget_slider)
@@ -34,8 +33,7 @@ my_server <- function(input, output) {
           average complication percentage of ", round(mean(preg_budget_filtered_df$mens_comp), 2), "%.")
   })
   
-##PLOT FOR ANALYSIS QUESTION 4
-  
+  ##PLOT FOR ANALYSIS QUESTION 4
   output$overall_budget_plot <- renderPlot({
     big_filtered_preg_budget_df <- preg_budget_df %>% 
       filter(budget<=input$overall_budget_slider)
@@ -61,9 +59,10 @@ my_server <- function(input, output) {
     paste("When the max budget is ", input$overall_budget_slider, ", there is an 
           average complication percentage of ", round(mean(big_filtered_preg_budget_df$preg_comp), 2), "%.")
     })
-    
-## PLOT FOR ANALYSIS QUESTION 1
-    
+
+  
+  ## PLOT FOR ANALYSIS QUESTION 1
+  
   output$analysis_q1 <- renderPlot({
     q1_data <- preg_comp_by_state_df %>% 
       filter(Complications == input$comp)
@@ -80,8 +79,8 @@ my_server <- function(input, output) {
     return(plot)
   })
   
-  ## PLOT FOR ANALYSIS QUESTION 2
   
+  ## PLOT FOR ANALYSIS QUESTION 2
   output$analysis_q2 <-renderPlot({
     
     q2_data <- menstrual_budget_df %>% 
@@ -97,4 +96,5 @@ my_server <- function(input, output) {
       theme(text = element_text(size = 17))
     return(plot)
   })
+  
 }
