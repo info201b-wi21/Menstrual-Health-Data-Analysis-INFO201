@@ -67,12 +67,12 @@ my_server <- function(input, output) {
     q1_data <- preg_comp_by_state_df %>% 
       filter(Complications == input$comp)
     
-    plot <- ggplot(data=q1_data, mapping=aes(x=States, y=value)) +
-      geom_col(width=1, position="dodge") +
+    plot <- ggplot(data=q1_data, mapping=aes(x=States, y=value, fill=States)) +
+      geom_col(width=1, position="dodge", color="black") +
+      theme(legend.position= "none") +
       labs(title = "Distribution of Pregnancy Complications by State",
            x = "States",
            y = "% Women Reporting") + 
-      scale_fill_brewer(palette="Dark2") +
       theme(axis.text.x = element_text(angle = 90)) +
       theme(text = element_text(size = 17))
     
@@ -87,7 +87,7 @@ my_server <- function(input, output) {
       select(States,input$year)
     
     plot <- ggplot(data=q2_data, aes(x="", y=pull(q2_data,input$year), fill=States)) +
-      geom_bar(stat = 'identity') +
+      geom_bar(stat = 'identity', color="black") +
       coord_polar('y', start=0) +
       theme_void() +
       labs(

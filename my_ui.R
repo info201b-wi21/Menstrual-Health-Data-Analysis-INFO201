@@ -105,7 +105,11 @@ my_ui <- fluidPage(
                
                # Main panel - Visualizations
                mainPanel(
-                 plotOutput("analysis_q1")
+                 h3("What is the Distribution of Pregnancy Complications by State?"),
+                 br(),
+                 plotOutput("analysis_q1"),
+                 p("The visualization shown above shows the breakdown of complications for each 
+                   recorded state. The complication type is selected through the dropdown.")
                )
              )
     ),
