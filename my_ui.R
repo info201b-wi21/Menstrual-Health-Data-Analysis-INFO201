@@ -108,8 +108,13 @@ my_ui <- fluidPage(
                  h3("What is the Distribution of Pregnancy Complications by State?"),
                  br(),
                  plotOutput("analysis_q1"),
-                 p("The visualization shown above shows the breakdown of complications for each 
-                   recorded state. The complication type is selected through the dropdown.")
+                 p("The visualization shown above shows the breakdown of 
+                   complications for each recorded state. There is a positive 
+                   correlation between the length of the barsand the most populous 
+                   states in India. This means that there are more numbers of complications 
+                   of all types within states that have higher populations, such 
+                   as West Bengal, Tamil Nadu, and Karnataka."),
+                 br()
                )
              )
     ),
