@@ -169,22 +169,44 @@ my_ui <- fluidPage(
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 h4(strong("Menstrual Complications Against Budget")),
+                 
+                 p("Each point on this graph represents a state, showing the state's
+                   budget and the percentage of women in that state who reported
+                   experiencing menstrual health complications. Simply adjust the slider to
+                   control which states are displayed on the graph. The state whose budgets are
+                   at or below the position of the slider will be shown."),
+                 
+                 br(),
+                 
                  sliderInput(inputId="menstrual_budget_slider", 
                              label="Choose Max Budget",
                              min= 0,
                              max = 700,
-                             value = 400)
+                             value = 400),
+                 
+                 br(),
+                 
+                 em("NOTE: There were many states for which there was no data, and only 11 of the 
+                    states in India are displayed here as a result.")
                ),
+               
                
                # Main panel
                mainPanel(
                  h4("How does the amount of each state's budget impact the percentage 
                     of menstrual related complications?"),
                  plotOutput(outputId="mens_budget_plot" ),
+                 
+                 br(),
+                 
                  p("The visualization shown above shows each state's menstrual complications by
                    percentage plotted against the maximum budget indicated by the slider
                    input. There is a negative correlation of about -22%, meaning that the lower
-                   the state budget value, the higher the percent of menstrual complications."),
+                   the state budget value, the higher the percent of menstrual complications. This is
+                   not a strong correlation, but this may be due to the fact that the sample size is fairly small, with only 
+                   11 states being considered. Despite this, it is reasonable to infer that more financial
+                   resources directed towards menstrual health will lead to better outcomes."),
                  textOutput(outputId = "reactive_description_q3")
                )
              )
@@ -194,10 +216,26 @@ my_ui <- fluidPage(
              sidebarLayout(
                # Controls panel
                sidebarPanel(
+                 
+                 h4(strong("Overall Pregnancy Complications Against Budget")),
+                 
+                 p("Each point on this graph represents a state, and the point's position
+                   is determined by the state's budget and the percentage of women who 
+                   reported experiencing any type of pregnancy complication. In order
+                   to see which states are included under different budget levels, simply adjust 
+                   the slider to display all states whose budget is at or below your chosen position."),
+                 
+                 br(),
+                 
                  sliderInput(inputId="overall_budget_slider", label="Choose max budget to display",
                              min=0,
                              max=700,
-                             value=400)
+                             value=400),
+                 
+                 br(),
+                 
+                 em("NOTE: As noted before, only 11 of the states in India were included in this data. 
+                    Therefore, the sample size used to construct this visualization was fairly small. ")
                ),
                
                # Main panel
@@ -205,10 +243,16 @@ my_ui <- fluidPage(
                  h4("How does each state's budget correlate to the overall percentage of pregnancy
                     complications?"),
                  plotOutput(outputId="overall_budget_plot"),
+                 
+                 br(),
+                 
                  p("The visualization shown above shows each state's overall pregnancy complications
                    by percentage plotted against the maximum budget indicated by the slider input.
                    There is a negative correlation of about -42%, meaning that the lower the state 
-                   budget value, the higher the percent value of overall pregnancy complications."),
+                   budget value, the higher the percent value of overall pregnancy complications. As
+                   noted before, this is not a particularly strong correlation but it is notably stronger
+                   than the previous visualization which compared menstrual health budget to the rate of reported 
+                   menstrual health complications alone."),
                  textOutput(outputId = "reactive_description_q4")
             
                )
