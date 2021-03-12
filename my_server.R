@@ -22,8 +22,16 @@ my_server <- function(input, output) {
         title = 'Menstrual Complications Against Budget',
         x = 'Budget',
         y = 'Percent Complications'
-      )
+      ) +
+      theme(text = element_text(size = 17))
     return(mens_budget_reactive_plot)
+  })
+  
+  output$reactive_description_q3 <- renderText({
+    preg_budget_filtered_df <- preg_budget_df %>% 
+      filter(budget<=input$menstrual_budget_slider)
+    paste("When the max budget is ", input$menstrual_budget_slider, ", there is an 
+          average complication percentage of ", round(mean(preg_budget_filtered_df$mens_comp), 2), "%.")
   })
   
 ##PLOT FOR ANALYSIS QUESTION 4
@@ -42,9 +50,17 @@ my_server <- function(input, output) {
         title = 'Overall Pregnancy Complications Against Budget',
         x = 'Budget',
         y = 'Percent Complications'
-      )
+      ) +
+      theme(text = element_text(size = 17))
     return(overall_budget_reactive_plot)
   })
+  
+  output$reactive_description_q4 <- renderText({
+    big_filtered_preg_budget_df <- preg_budget_df %>% 
+      filter(budget<=input$overall_budget_slider)
+    paste("When the max budget is ", input$overall_budget_slider, ", there is an 
+          average complication percentage of ", round(mean(big_filtered_preg_budget_df$preg_comp), 2), "%.")
+    })
     
 ## PLOT FOR ANALYSIS QUESTION 1
     
@@ -58,9 +74,10 @@ my_server <- function(input, output) {
            x = "States",
            y = "% Women Reporting") + 
       scale_fill_brewer(palette="Dark2") +
-      theme(axis.text.x = element_text(angle = 90))
+      theme(axis.text.x = element_text(angle = 90)) +
+      theme(text = element_text(size = 17))
     
-    plot
+    return(plot)
   })
   
   ## PLOT FOR ANALYSIS QUESTION 2
@@ -76,7 +93,8 @@ my_server <- function(input, output) {
       theme_void() +
       labs(
         title = paste('Distribution of State Menstrual Health Budget in ', input$year)
-      )
-    plot
+      ) +
+      theme(text = element_text(size = 17))
+    return(plot)
   })
 }
