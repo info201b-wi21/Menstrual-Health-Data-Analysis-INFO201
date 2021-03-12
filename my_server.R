@@ -4,8 +4,14 @@ library('shiny')
 source('analysis.R')
 
 my_server <- function(input, output) {
+<<<<<<< HEAD
 
   # Plot for Analysis Q3
+=======
+  
+## PLOT FOR ANALYSIS QUESTION 3
+  
+>>>>>>> b6cec0676e3c87ba98a6d692fd81a3e61643dcba
   output$mens_budget_plot <- renderPlot({
     preg_budget_filtered_df <- preg_budget_df %>% 
       filter(budget<=input$menstrual_budget_slider)
@@ -25,7 +31,12 @@ my_server <- function(input, output) {
     return(mens_budget_reactive_plot)
   })
   
+<<<<<<< HEAD
   # Plot for Analysis Q4
+=======
+##PLOT FOR ANALYSIS QUESTION 4
+  
+>>>>>>> b6cec0676e3c87ba98a6d692fd81a3e61643dcba
   output$overall_budget_plot <- renderPlot({
     big_filtered_preg_budget_df <- preg_budget_df %>% 
       filter(budget<=input$overall_budget_slider)
@@ -43,8 +54,14 @@ my_server <- function(input, output) {
       )
     return(overall_budget_reactive_plot)
   })
+<<<<<<< HEAD
 
   # Plot for analysis question 1
+=======
+    
+## PLOT FOR ANALYSIS QUESTION 1
+    
+>>>>>>> b6cec0676e3c87ba98a6d692fd81a3e61643dcba
   output$analysis_q1 <- renderPlot({
     q1_data <- preg_comp_by_state_df %>% 
       filter(Complications == input$comp)
@@ -60,7 +77,8 @@ my_server <- function(input, output) {
     plot
   })
   
-  # Plot for analysis question 2
+  ## PLOT FOR ANALYSIS QUESTION 2
+  
   output$analysis_q2 <-renderPlot({
     
     q2_data <- menstrual_budget_df %>% 
