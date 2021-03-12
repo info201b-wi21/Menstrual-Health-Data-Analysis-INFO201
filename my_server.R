@@ -5,7 +5,8 @@ source('analysis.R')
 
 my_server <- function(input, output) {
   
-<<<<<<< HEAD
+## PLOT FOR ANALYSIS QUESTION 3
+  
   output$mens_budget_plot <- renderPlot({
     preg_budget_filtered_df <- preg_budget_df %>% 
       filter(budget<=input$menstrual_budget_slider)
@@ -24,6 +25,9 @@ my_server <- function(input, output) {
       )
     return(mens_budget_reactive_plot)
   })
+  
+##PLOT FOR ANALYSIS QUESTION 4
+  
   output$overall_budget_plot <- renderPlot({
     big_filtered_preg_budget_df <- preg_budget_df %>% 
       filter(budget<=input$overall_budget_slider)
@@ -40,8 +44,10 @@ my_server <- function(input, output) {
         y = 'Percent Complications'
       )
     return(overall_budget_reactive_plot)
-=======
-  #
+  })
+    
+## PLOT FOR ANALYSIS QUESTION 1
+    
   output$analysis_q1 <- renderPlot({
     q1_data <- preg_comp_by_state_df %>% 
       filter(Complications == input$comp)
@@ -57,7 +63,8 @@ my_server <- function(input, output) {
     plot
   })
   
-  # Plot for analysis question 2
+  ## PLOT FOR ANALYSIS QUESTION 2
+  
   output$analysis_q2 <-renderPlot({
     
     q2_data <- menstrual_budget_df %>% 
@@ -71,6 +78,5 @@ my_server <- function(input, output) {
         title = paste('Distribution of State Menstrual Health Budget in ', input$year)
       )
     plot
->>>>>>> Shiny_Analysis_1&2
   })
 }
