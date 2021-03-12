@@ -93,8 +93,8 @@ my_ui <- fluidPage(
                                 "Vaginal Discharge Complications" = "vag_discharge_comp")
                  ),
                  hr(),
-                 helpText(em("Note: When evaluating, when adding up the various
-                              pregnancy complications they exceed 100%. This leads us to conclude that the complications are not 
+                 helpText(em("Note: When evaluating, the sum of the various
+                              pregnancy complications exceeds 100%. This leads us to conclude that the complications are not 
                               mutually exclusive, implying that a woman could have post-delivery
                               complications while also experiencing menstrual-related complications. ")),
                  br(),
@@ -120,6 +120,7 @@ my_ui <- fluidPage(
              )
     ),
               
+# Analysis Q 2 Tab: Distribution of State Menstrual Health Budget    
     tabPanel(title='Analysis Question 2',
              sidebarLayout(
                # Controls panel
@@ -138,7 +139,7 @@ my_ui <- fluidPage(
                  ),
                  hr(),
                  helpText(em("Note: A stipulation of the data set is that
-                              the graph does not accurately representative of the entire 
+                              the graph does not accurately represent the entire 
                               population of India. There is ambiguity as to whether 
                               some regions listed in the data set are states versus 
                               cities. Additionally, there is the exclusion of some states."))
@@ -159,12 +160,15 @@ my_ui <- fluidPage(
                    data frame. In the end, we can not confidently answer our analysis 
                    question without more sufficient data from a wider sample of India's population."),
                  br(),
-                 textOutput('reactive_description_q2')
+                 textOutput('reactive_description_q2'),
+                 br()
                )
              )
     
     ),
-    
+  
+# Analysis Question #3: Menstrual Complications Against Budget 
+
     tabPanel(title='Analysis Question 3',
              sidebarLayout(
                # Controls panel
@@ -187,8 +191,8 @@ my_ui <- fluidPage(
                  
                  br(),
                  
-                 em("NOTE: There were many states for which there was no data, and only 11 of the 
-                    states in India are displayed here as a result.")
+                 helpText(em("Note: There were many states for which there was no data, and only 11 of the 
+                    states in India are displayed here as a result."))
                ),
                
                
@@ -207,11 +211,13 @@ my_ui <- fluidPage(
                    not a strong correlation, but this may be due to the fact that the sample size is fairly small, with only 
                    11 states being considered. Despite this, it is reasonable to infer that more financial
                    resources directed towards menstrual health will lead to better outcomes."),
-                 textOutput(outputId = "reactive_description_q3")
+                 textOutput(outputId = "reactive_description_q3"),
+                 br()
                )
              )
     ),
    
+# Analysis Question #4: Overall Pregnancy Complications Against Budget 
     tabPanel(title='Analysis Question 4',
              sidebarLayout(
                # Controls panel
@@ -234,8 +240,8 @@ my_ui <- fluidPage(
                  
                  br(),
                  
-                 em("NOTE: As noted before, only 11 of the states in India were included in this data. 
-                    Therefore, the sample size used to construct this visualization was fairly small. ")
+                 helpText(em("Note: As noted before, only 11 of the states in India were included in this data. 
+                    Therefore, the sample size used to construct this visualization was fairly small. "))
                ),
                
                # Main panel
@@ -253,7 +259,8 @@ my_ui <- fluidPage(
                    noted before, this is not a particularly strong correlation but it is notably stronger
                    than the previous visualization which compared menstrual health budget to the rate of reported 
                    menstrual health complications alone."),
-                 textOutput(outputId = "reactive_description_q4")
+                 textOutput(outputId = "reactive_description_q4"),
+                 br()
             
                )
              )
