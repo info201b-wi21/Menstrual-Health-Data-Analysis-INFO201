@@ -6,6 +6,9 @@ _By: Kriti Vajhula, Franchezca Layog, Ian Chandramouli, & Harmeet Singh_
 # INFO 201 Course Project: Menstrual Health Data Analysis: India
 _By: Kriti Vajhula, Franchezca Layog, Ian Chandramouli, & Harmeet Singh_
 
+## Accessing the Site
+https://kvajjhula.shinyapps.io/project-franchezcalayog/
+
 ## Problem Domain  
 In many developing countries women and girls worldwide lack adequate facilities and resources for menstrual hygiene management (MHM). Challenges that many of these women and girls face does not extend solely to the availability of these resources and products, but also due to the institutionalized social norms and beliefs that place a stigma on menstrual health.
 
